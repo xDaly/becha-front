@@ -1,0 +1,242 @@
+<div class="container pb-5">
+    <div id="stepper1" class="bs-stepper">
+
+        <div class="bs-stepper-header">
+            <div class="step" data-target="#test-l-1">
+                <button class="step-trigger">
+          <span class="bs-stepper-circle">1</span>
+          <span class="bs-stepper-label">Info</span>
+        </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#test-l-2">
+                <button class="step-trigger">
+          <span class="bs-stepper-circle">2</span>
+          <span class="bs-stepper-label">Owner</span>
+        </button>
+            </div>
+            <div class="line"></div>
+            <div class="step" data-target="#test-l-3">
+                <button class="step-trigger">
+          <span class="bs-stepper-circle">3</span>
+          <span class="bs-stepper-label">Photos</span>
+        </button>
+            </div>
+        </div>
+        <div class="bs-stepper-content">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div id="test-l-1" class="content">
+                    <div class="container">
+                        <div class="row pb-2">
+                            <div class="col mx-auto">
+                                <label for="exampleInputEmail1" class="txt">Announce Photo</label>
+                                <div class="card" *ngIf="mainImage !== ''" style="width: 25vw;">
+                                    <img class="card-img-top" src={{mainImage}}>
+                                    <a class="btn btn-outline-danger border-0" style="font-size:
+                    70%;" (click)="deleteMain()">Delete</a>
+                                </div>
+                                <div class="image-upload">
+                                    <label for="file-input" *ngIf="mainImage == ''" style="cursor:
+                    pointer;">
+                    <div class="card text-center border-0 d-flex
+                      align-items-center" style="width: 25vw;">
+                      <div class="card-body d-flex align-items-center">
+                        <i class="fas fa-plus-square"> Upload</i>
+                      </div>
+                    </div>
+                  </label>
+                                    <input id="file-input" type="file" (change)="fileChangeEvent($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="txt">Title</label>
+                        <input ngModel name="title" type="text" class="form-control" placeholder="Enter Title" maxlength="100" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="txt">Price</label>
+                        <input ngModel name="price" type="number" class="form-control" placeholder="Enter Price" maxlength="100" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="txt">Description</label>
+                        <textarea ngModel name="description" type="text" class="form-control" rows="6" [(ngModel)]="role" [maxlength]="maxChars"> </textarea>
+                        <label> Characters Remaining: {{role.length}}/{{maxChars}}</label>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Address</label>
+                            <input ngModel name="address" type="text" class="form-control
+                border-0" rows="1" maxlength="40">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Category</label>
+                            <select ngModel name="category" (ngModelChange)="getSubCategories($event)" class="form-control custom-select
+                border-0" id="user_gender" style="font-size: 0.8rem!important;">
+                <option *ngFor="let c of Categories">{{c.name}}</option>
+              </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Sub Category</label>
+                            <select ngModel name="sub_category" class="form-control
+                custom-select border-0" id="user_gender" style="font-size:
+                0.8rem!important;">
+               <option *ngFor="let sc of SubCategories">{{sc.name}}</option>
+              </select>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Location</label>
+                            <select ngModel name="location" class="form-control custom-select
+                border-0" id="user_gender" style="font-size: 0.8rem!important;">
+                <option *ngFor="let location of Locations">{{location.name}}</option>
+              </select>
+                        </div>
+                    </div>
+
+                    <button (click)="next()" type="button" class="btn btn-dark btnbgcolor
+            mb-3">Next</button>
+                </div>
+                <div id="test-l-2" class="content">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Name</label>
+                            <input ngModel name="name" type="text" class="form-control
+                border-0" rows="1" maxlength="40">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="exampleInputEmail1" class="txt">Phone Number</label>
+                            <input ngModel name="phone" type="number" class="form-control
+                border-0" oninput="javascript: if (this.value.length>
+              this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" maxlength="8">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="container">
+                            <div class="row">
+                                <label class="switch ml-5" for="checkbox">
+                  <input [ngModel]=false name="whatsapp" type="checkbox"
+                    id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+                                <div class="col-6 txt pt-1">Whatsapp Messages</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <button type="button" (click)="next()" class="btn btn-dark btnbgcolor
+            mt-2">Next</button>
+                </div>
+                <div id="test-l-3" class="content text-center">
+                    <div class="container">
+                        <div class="row pb-2">
+                            <div class="col mx-auto">
+                                <label for="exampleInputEmail1" class="txt">Upload Photos</label>
+                                <div class="row">
+                                    <div class="card" *ngFor="let img of arrimages; let i= index" style="width: 25%;">
+                                        <img class="card-img-top" src={{img}}>
+                                        <a class="btn btn-outline-danger border-0" style="font-size:
+                      70%;" (click)="delete(i)">Delete</a>
+                                    </div>
+                                </div>
+                                <div class="image-upload mt-3">
+                                    <label for="file-input2" *ngIf="arrimages.length <8" style="cursor: pointer;">
+                    <div class="card text-center border-0 d-flex
+                      align-items-center" style="width: 25vw;">
+                      <div class="card-body d-flex align-items-center">
+                        <i class="fas fa-plus-square"> Upload</i>
+                      </div>
+                    </div>
+                  </label>
+                                    <input id="file-input2" #fileinput2 type="file" (change)="fileChangeEvent2($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark btnbgcolor mt-5" [disabled]="arrimages.length < 4">Submit</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div *ngFor="let value of values; let i = index"> 
+    <input type="text" [(ngModel)]="value.name" #name="ngModel" name="value{{i}}">
+  <input type="text" [(ngModel)]="value.value" #name="ngModel" name="value{{i}}">
+  <button (click)="removevalue(i)">Remove</button>
+</div>
+<button (click)="addvalue()">ADD</button>
+
+
+<button class="btn btn-primary" (click)="go()">go</button> -->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Resize Your Image</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross
+      click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+
+    <div class="modal-body">
+        <image-cropper class="rounded mx-auto img-thumbnail" [imageQuality]=20 [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="3/4" format="jpeg" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()" style="max-height: 60vh;">
+        </image-cropper>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="c('Save
+      click');addimage()">Save</button>
+    </div>
+
+</ng-template>
+
+<ng-template #contentt let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Resize Your Image for collection </h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross
+      click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+
+    <div class="modal-body">
+        <image-cropper class="rounded mx-auto img-thumbnail" [imageQuality]=20 [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4/4" format="jpeg" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+            (loadImageFailed)="loadImageFailed()" style="max-height: 60vh;">
+        </image-cropper>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="c('Save
+      click');addarrimg()">Save</button>
+    </div>
+
+</ng-template>

@@ -1,0 +1,47 @@
+.logo {
+    font-family: "Rye", cursive;
+    font-size: x-large;
+    background: -webkit-linear-gradient(rgb(248, 209, 47) 0%, rgb(240, 185, 11) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-control {
+    box-shadow: unset !important;
+    padding: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.px-lg-2 {
+    border-radius: 0.25rem;
+}
+.linav {
+    font-family: "Changa", sans-serif;
+}
+
+.linav::placeholder {
+    font-family: "Changa", sans-serif;
+}
+
+.active {
+    background: -webkit-linear-gradient(rgb(29, 23, 0) 0%, rgb(95, 74, 3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.searchicon {
+    background: -webkit-linear-gradient(rgb(248, 209, 47) 0%, rgb(240, 185, 11) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.i {
+    background-color: #888;
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 0.5em 0.6em;
+}

@@ -1,0 +1,157 @@
+<div class="container">
+
+    <!-- <app-carousel></app-carousel> -->
+
+    <!-- <div class="form-row m-1 txt pb-1">
+    <div class="col m-1">
+      <label class="" for="inlineFormCustomSelect">Category : </label>
+      <select class="custom-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col m-1 ">
+      <label class="" for="inlineFormCustomSelect">Governorat : </label>
+      <select class="custom-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col m-1">
+      <label class="" for="inlineFormCustomSelect">Sort By : </label>
+      <select class="custom-select mr-sm-2 border-0" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+ 
+    <button class="txt float-right btn btn-outline-dark mr-3">Search</button><br><br> -->
+    <div class="row">
+        <div class="col-10 col-md-3 mb-1 mt-1 pt-3 mx-auto boxshadow">
+            <div class="sidebar txt">
+                <form #f="ngForm" (submit)="register(f)" style="font-size:
+          0.8rem!important;">
+                    <div class="form-group txt placeholderr">
+                        <input ngModel name="title" type="text" class="form-control border-0
+              linav" placeholder="Search here ..." aria-describedby="basic-addon2">
+                    </div>
+                    <div class="widget user_widget_search">
+                        <div class="form-group">
+                            <select ngModel name="category" (ngModelChange)="getSubCategories($event)" class="form-control custom-select border-0" id="user_gender" style="font-size: 0.8rem!important;">
+                              <option  value=""  selected>Toute Les Catégories</option>
+                              <option *ngFor="let c of Categories">{{c.name}}</option>
+              </select>
+                        </div>
+                        <div class="form-group">
+                            <select [disabled]="SubCategories.length == 0" ngModel name="sub_category" class="form-control custom-select border-0" id="user_gender" style="font-size: 0.8rem!important;">
+                              <option  value=""  selected>Toute Les Sous Catégories</option>
+                              <option *ngFor="let sc of SubCategories">{{sc.name}}</option>
+              </select>
+                        </div>
+                        <div class="form-group">
+                            <select ngModel name="location" class="form-control custom-select border-0" id="user_gender" style="font-size: 0.8rem!important;">
+                              <option  value="" disabled selected>Toute La Tunisie</option>
+                              <option *ngFor="let location of Locations">{{location.name}}</option>
+              </select>
+                        </div>
+                        <div class="form-group">
+                            <select ngModel="Pertinence" name="sort" class="form-control custom-select border-0" id="user_sort" style="font-size: 0.8rem!important;">
+                <option ngValue="Pertinence">Pertinence</option>
+                <option ngValue="Le plus récent">Le plus récent</option>
+                <option ngValue="Prix le plus bas">Prix le plus bas</option>
+                <option ngValue="Prix le plus élevé">Prix le plus élevé</option>
+                <option ngValue="Populaire">Populaire</option>
+              </select>
+                        </div>
+
+                        <!-- <div class="form-group">
+              <label for="min" class="form-label col-6">Min : {{min}}</label>
+              <input class="form-label col-6 border-0" ngModel name="min" value="0" [(ngModel)]="min"
+                style="width: 70px;float: right; border-radius: 5px; ">
+              <input type="range" ngModel name="min" value="0" [(ngModel)]="min" class="form-range custom-range" min="0"
+                max="9999" step="1" id="min" style="width: 100%; ">
+            </div>
+            <div class="form-group">
+              <label for="max" class="form-label col-6">Max : {{max}}</label>
+              <input class="form-label col-6 border-0" ngModel name="max" value="0" [(ngModel)]="max"
+                style="width: 70px;float: right; border-radius: 5px; ">
+              <input type="range" ngModel name="max" value="9999" [(ngModel)]="max" class="form-range custom-range"
+                value="9999" min="0" max="9999" step="1" id="max" style="width: 100%;">
+            </div> -->
+                        <button class="btn btn-outline-dark mb-3" type="submit" style="font-size: 0.8rem!important;float:right;background-image:
+              linear-gradient(rgb(248, 209, 47) 0%, rgb(240, 185, 11) 100%);">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-md-9">
+
+            <section class="products pb-5">
+
+
+
+                <a *ngFor="let announce of announces" class="product-card m-1" routerLink="/productinfo/{{announce.announce_id}}">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a class="image">
+                                <img class="pic-1" src={{imgurl+announce.pub_image}}>
+                            </a>
+                            <span class="txt product-discount-label">{{announce.location}}</span>
+                        </div>
+                        <div class="product-content">
+                            <ul class="rating">
+                                <p class="text-monospace text-secondary" style="font-size:
+                  00.8rem;">{{announce.createdAt | date:'MMM-dd-yyyy'}}</p>
+                            </ul>
+                            <h3 class="title txt">{{announce.title}}</h3>
+                            <div class="price txt">{{announce.price}} TND</div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+
+
+            </section>
+        </div>
+    </div>
+
+
+</div>
+<a class="scroll" (click)="scrollToTop()"><svg
+    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
+    viewBox="0 0 172 172" style="fill:#000000;">
+    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+      stroke-linecap="butt" stroke-linejoin="miter"
+      stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+      font-family="none" font-weight="none"
+      font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+      <path d="M0,172v-172h172v172z" fill="none"></path>
+      <g fill="#f1c40f">
+        <path
+          d="M86,6.88c-43.63156,0 -79.12,35.48844 -79.12,79.12c0,43.63156
+          35.48844,79.12 79.12,79.12c43.63156,0 79.12,-35.48844
+          79.12,-79.12c0,-43.63156 -35.48844,-79.12
+          -79.12,-79.12zM122.83219,98.75219c-0.67187,0.67188 -1.54531,1.00781
+          -2.43219,1.00781c-0.88687,0 -1.76031,-0.33594
+          -2.43219,-1.00781l-31.96781,-31.96781l-31.96781,31.96781c-1.34375,1.34375
+          -3.52062,1.34375 -4.86437,0c-1.34375,-1.34375 -1.34375,-3.52062
+          0,-4.86437l34.4,-34.4c1.34375,-1.34375 3.52062,-1.34375
+          4.86437,0l34.4,34.4c1.34375,1.34375 1.34375,3.52062 0,4.86437z">
+        </path>
+      </g>
+    </g>
+  </svg></a>
+<!-- <div *ngIf="isDesktop">
+  <app-footer></app-footer>
+</div>  -->

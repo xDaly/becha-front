@@ -1,0 +1,80 @@
+<div class="card-wrapper mb-5">
+  <div class="card">
+    <!-- card left -->
+    <div class="gallery">
+      <a *ngFor="let image of images; let i = index" class="cursor">
+        <img src="{{imgurl+image.id}}.{{image.extention}}" class="transluz img-thumb" (click)="select(image.id,image.extention)"/>
+      </a>
+      <div class="mySlides" style="width: 100%;">
+        <img src="{{showed}}"/>
+      </div>
+
+    </div>
+    <!-- card right -->
+    <div class="product-content">
+      <h2 class="product-title  txt">{{productinfo?.title}}</h2>
+      <!-- <a class="product-link txt">visit nike store</a> -->
+      <!-- <div class="product-rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="txt">4.7(21)</span>
+      </div> -->
+
+      <div class="product-price txt">
+        <p class="new-price"> Price: <span class="pl-1">{{productinfo?.price}} TND</span></p>
+      </div>
+
+      <div class="product-detail txt">
+        <h2>about this item: </h2>
+        <p>{{productinfo?.description}}</p>
+        <ul>
+          <li>Location: <span>{{productinfo?.location}}</span></li>
+          <li>Address: <span>{{productinfo?.address}}</span></li>
+          <li>Category: <span>{{productinfo?.category}}</span></li>
+          <li>Sub Category: <span>{{productinfo?.sub_category}}</span></li>
+          <li>Date: <span>{{productinfo?.createdAt |date : 'fullDate'}}</span></li>
+        </ul>
+      </div>
+
+      <div class="seller-detail txt">
+        <h4>about Seller: </h4>
+        <ul>
+          <li>Seller Name: <span>{{productinfo?.name}}</span></li>
+          <li>Seller Phone: <span>{{productinfo?.phone}}</span></li>
+        </ul>
+      </div>
+
+      <div class="purchase-info txt mt-1">
+        <a class="btn btn-outline-primary" href="tel:{{productinfo?.phone}}">Call on phone <i class="fas fa-phone"></i></a>
+        <a *ngIf="productinfo?.whatsapp" class="btn btn-outline-success" href="https://api.whatsapp.com/send?phone=+216{{productinfo?.phone}}">Call on whatsapp <i
+            class="fab fa-whatsapp"></i></a>
+
+      </div>
+
+
+      <div class="input-group mt-1">
+        <input type="text" class="form-control txt linkk" value={{productlink}} #userinput readonly>
+        <div class="input-group-append">
+          <button type="button" class="pl-2 pr-2 btn btn-warning txt" (click)="copyInputMessage(userinput)"
+            value="click to copy">Copy</button>
+        </div>
+      </div>
+
+
+
+
+      <!-- 
+      <div class="social-links">
+
+        <p class="txt">Share At: </p>
+        <a href="https://www.facebook.com/share.php?u={{productlink}}" >
+          <i class="fab fa-facebook"></i>
+        </a>
+    
+      </div> -->
+
+    </div>
+  </div>

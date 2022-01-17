@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import url('../node_modules/bs-stepper/dist/css/bs-stepper.min.css');
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Shippori+Antique+B1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Changa:wght@500&display=swap");
+
+body{
+    background-color: #e8ebf1;
+}
+
+.txt{
+    font-family: "Changa", sans-serif;
+}
+
+.custom-select:focus,.form-control:focus{
+    box-shadow: 0 0 0 3px rgb(255, 165, 0)!important;
+    border-style: hidden!important;
+}
+
+

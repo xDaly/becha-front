@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-md navbar-light shadow-sm bg-light fixed-top">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right border-0 searchicon" type="button" data-toggle="collapse"
+            data-target="#navbar4">
+            <!-- <a routerLink="/signin" routerLinkActive="active">
+                <i class="fas fa-user" style="border-style: solid;border-radius:30%;padding:30%;color:#E7E7E7"></i>
+            </a> -->
+        </button>
+        <a class="navbar-brand d-flex align-items-center" routerLink="/home"><span
+                class="ml-3 font-weight-bold logo">BECHA</span></a>
+        <button class="navbar-toggler navbar-toggler-right border-0 searchicon" type="button" data-toggle="collapse"
+            data-target="#navbar4">
+             <!-- <a routerLink="/contact" routerLinkActive="active">
+                <i class="fas fa-envelope-open-text" style="border-style: solid;border-radius:50%;padding:30%;color:#E7E7E7"></i>
+            </a>  -->
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav  pl-lg-4" style="margin-left: 40%;">
+
+                <li class="nav-item px-lg-2" routerLink="/home" routerLinkActive="active" style="cursor: pointer;">
+                    <a class="nav-link">
+                        <span class="d-inline-block font-weight-bold icon-width linav" style="font-size:1em;">
+                            <i class="fas fa-home"></i> Home
+                        </span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item px-lg-2" routerLink="/contact" routerLinkActive="active"> <a class="nav-link"style="cursor: pointer;"><span
+                            class="d-inline-block font-weight-bold icon-width linav" style="font-size:1em;"><i class="fas fa-envelope-open-text"></i> Contact
+                        </span></a>
+                </li>
+                <!-- <li class="nav-item px-lg-2" routerLink="/shops" routerLinkActive="active"> <a class="nav-link"><span
+                            class="d-inline-block font-weight-bold icon-width linav" style="font-size:1em;"><i
+                                class="fas fa-store"></i> Shops
+                        </span></a>
+                </li> -->
+
+                <li class="nav-item px-lg-2"
+                    style="background-image: linear-gradient(rgb(248, 209, 47) 0%, rgb(240, 185, 11) 100%);cursor: pointer;"
+                    routerLink="/create" routerLinkActive="active">
+                    <a class="nav-link"><span class="d-inline-block icon-width font-weight-bold linav"
+                            style="font-size:1em;"><i class="fas fa-plus-circle"></i> Create Announce</span></a>
+                </li>
+                <!-- <li class="nav-item px-lg-2" routerLink="/profile" routerLinkActive="active"> <a class="nav-link"><span
+                    class="d-inline-block font-weight-bold icon-width linav" style="font-size:1em;"><i
+                        class="fas fa-user"></i> Profile
+                </span></a>
+        </li> -->
+               <!--  <li class="nav-item ml-5 menu" #menu id="menu">
+                    <div class="input-group">
+                        <input type="text" (focus)="open()" class="form-control linav" placeholder="Search here ..."
+                            aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <a class="btn btn-outline-warning form-control bold linav" type="button"><i
+                                    class="fas fa-search pr-1"></i></a>
+                        </div>
+                    </div>
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" style="position: fixed;">
+                        <div class="card">
+                            <div class="txt">
+                                <form>
+                                    <div>
+                                        <div class="p-2 mt-1 bg-light rounded">
+                                            <label>Category : </label>
+                                            <select class="custom-select mr-sm-2 border" id="inlineFormCustomSelect">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <label>Governorat : </label>
+                                            <select class="custom-select mr-sm-2 border" id="inlineFormCustomSelect">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="p-2 mt-1 bg-light rounded">
+                                            <label>Sort By :</label>
+                                            <select class="custom-select mr-sm-2 border" id="inlineFormCustomSelect">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <button (click)="close()" class="txt border-dark btn btn-outline-dark  m-1">Close</button>
+
+                        </div>
+
+                    </div> 
+                </li>-->
+            </ul>
+
+            <!-- <ul class="navbar-nav col ml-auto">
+                <li class="nav-item"> <a class="nav-link">
+                        <i class="fab fa-twitter"></i><span class="d-lg-none ml-3">Twitter</span>
+                    </a> </li>
+                <li class="nav-item"> <a class="nav-link">
+                        <i class="fab fa-facebook"></i><span class="d-lg-none ml-3">Facebook</span>
+                    </a> </li>
+                <li class="nav-item"> <a class="nav-link">
+                        <i class="fab fa-instagram"></i><span class="d-lg-none ml-3">Instagram</span>
+                    </a> </li>
+                <li class="nav-item"> <a class="nav-link">
+                        <i class="fab fa-linkedin"></i><span class="d-lg-none ml-3">Linkedin</span>
+                    </a> </li>
+            </ul> -->
+        </div>
+    </div>
+</nav>
